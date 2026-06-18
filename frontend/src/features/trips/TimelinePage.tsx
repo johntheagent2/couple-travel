@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Compass } from 'lucide-react'
 import { useTimeline } from './useTrips'
 import { TripCard } from './TripCard'
 
@@ -10,7 +11,7 @@ export function TimelinePage() {
   return (
     <div className="max-w-lg mx-auto px-4 py-6">
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-warm-800" style={{ fontFamily: 'Georgia, serif' }}>
+        <h1 className="font-display text-2xl font-semibold text-warm-800">
           Our Trips
         </h1>
         <Link
@@ -29,7 +30,9 @@ export function TimelinePage() {
         </div>
       ) : trips.length === 0 ? (
         <div className="text-center py-20 text-warm-400">
-          <div className="text-6xl mb-4">✨</div>
+          <div className="flex justify-center mb-4">
+            <Compass size={48} strokeWidth={1} className="text-warm-300" />
+          </div>
           <p className="text-lg font-medium text-warm-700">Your map is waiting for its first adventure</p>
           <p className="text-sm mt-2">Log your first trip to get started.</p>
           <Link

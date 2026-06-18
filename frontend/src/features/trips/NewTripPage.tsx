@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { MapPin } from 'lucide-react'
 import { useCreateTrip } from './useTrips'
 import { api } from '../../lib/api'
 import type { CityCandidate } from '../../types/api'
@@ -76,7 +77,7 @@ export function NewTripPage() {
 
   return (
     <div className="max-w-lg mx-auto px-4 py-6">
-      <h1 className="text-2xl font-bold text-warm-800 mb-6" style={{ fontFamily: 'Georgia, serif' }}>
+      <h1 className="font-display text-2xl font-semibold text-warm-800 mb-6">
         Log a trip
       </h1>
 
@@ -120,7 +121,7 @@ export function NewTripPage() {
           <label className="block text-sm font-medium text-warm-700 mb-1">City</label>
           {selectedCity ? (
             <div className="flex items-center justify-between bg-sage-50 border border-sage-200 rounded-xl px-3 py-2">
-              <span className="text-sm text-sage-800">📍 {selectedCity.name}, {selectedCity.country}</span>
+              <span className="text-sm text-sage-800 flex items-center gap-1"><MapPin size={12} className="flex-shrink-0" />{selectedCity.name}, {selectedCity.country}</span>
               <button
                 type="button"
                 onClick={() => { setSelectedCity(null); setCityQuery(''); setCandidates([]) }}
