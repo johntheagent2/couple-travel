@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Compass, Heart } from 'lucide-react'
 import { useLogin } from './useAuth'
 
 export function LoginPage() {
@@ -21,48 +22,61 @@ export function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-warm-50 px-4">
-      <div className="w-full max-w-sm">
-        <div className="text-center mb-8">
-          <div className="text-5xl mb-3">🗺️</div>
-          <h1 className="text-3xl font-bold text-warm-800" style={{ fontFamily: 'Georgia, serif' }}>
+    <div className="min-h-screen flex flex-col bg-warm-50" style={{
+      backgroundImage: 'radial-gradient(ellipse 100% 50% at 50% -5%, rgba(220, 143, 48, 0.15), transparent 70%)',
+    }}>
+      {/* Journal cover */}
+      <div className="flex-1 flex flex-col items-center justify-center px-6 pt-16 pb-8">
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-warm-100 text-warm-500 mb-6" aria-hidden>
+            <Compass size={32} strokeWidth={1.5} />
+          </div>
+          <h1 className="font-display text-4xl font-semibold text-warm-900 tracking-tight leading-tight">
             Our Adventures
           </h1>
-          <p className="text-warm-600 mt-1 text-sm">Your shared travel scrapbook</p>
+          <p className="mt-3 text-warm-500 text-sm tracking-wide">
+            your shared travel journal
+          </p>
         </div>
 
-        <form onSubmit={submit} className="bg-white rounded-2xl shadow-sm border border-warm-100 p-6 space-y-4">
+        <form onSubmit={submit} className="w-full max-w-xs space-y-4">
           <div>
-            <label className="block text-sm font-medium text-warm-700 mb-1">Email</label>
+            <label className="block text-xs font-medium text-warm-600 mb-1.5 tracking-wide uppercase">Email</label>
             <input
               type="email"
               value={email}
               onChange={e => setEmail(e.target.value)}
               required
-              className="w-full rounded-xl border border-warm-200 px-3 py-2 text-sm outline-none focus:border-warm-400 focus:ring-2 focus:ring-warm-100"
+              autoComplete="email"
+              className="w-full rounded-xl border border-warm-200 bg-white px-4 py-2.5 text-sm text-warm-900 outline-none placeholder:text-warm-300 focus:border-warm-400 focus:ring-2 focus:ring-warm-100 transition-shadow"
               placeholder="you@example.com"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-warm-700 mb-1">Password</label>
+            <label className="block text-xs font-medium text-warm-600 mb-1.5 tracking-wide uppercase">Password</label>
             <input
               type="password"
               value={password}
               onChange={e => setPassword(e.target.value)}
               required
-              className="w-full rounded-xl border border-warm-200 px-3 py-2 text-sm outline-none focus:border-warm-400 focus:ring-2 focus:ring-warm-100"
+              autoComplete="current-password"
+              className="w-full rounded-xl border border-warm-200 bg-white px-4 py-2.5 text-sm text-warm-900 outline-none placeholder:text-warm-300 focus:border-warm-400 focus:ring-2 focus:ring-warm-100 transition-shadow"
             />
           </div>
           {error && <p className="text-red-500 text-sm">{error}</p>}
           <button
             type="submit"
             disabled={login.isPending}
-            className="w-full bg-warm-500 hover:bg-warm-600 text-white rounded-xl py-2.5 font-medium text-sm transition-colors disabled:opacity-60"
+            className="w-full bg-warm-500 hover:bg-warm-600 active:bg-warm-700 text-white rounded-xl py-2.5 font-medium text-sm transition-colors disabled:opacity-60 mt-2"
           >
-            {login.isPending ? 'Signing in…' : 'Sign in'}
+            {login.isPending ? 'Signing in…' : 'Open journal'}
           </button>
         </form>
       </div>
+
+      <p className="text-center text-warm-300 text-xs pb-8 select-none flex items-center justify-center gap-1.5">
+        made with <Heart size={10} className="text-warm-400 fill-warm-400" />
+      </p>
     </div>
   )
 }

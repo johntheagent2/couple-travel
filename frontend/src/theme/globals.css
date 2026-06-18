@@ -23,8 +23,8 @@
   --color-sage-800: #2b432b;
   --color-sage-900: #243824;
 
-  --font-family-display: "Georgia", "Times New Roman", serif;
-  --font-family-body: "Inter", system-ui, sans-serif;
+  --font-family-display: "Lora", Georgia, serif;
+  --font-family-body: system-ui, -apple-system, sans-serif;
 
   --radius-card: 1rem;
   --radius-pill: 9999px;
@@ -44,6 +44,13 @@
   body {
     font-family: var(--font-family-body);
     background-color: var(--color-warm-50);
+    /* Warm ambient glow at the top — subtle depth for the scrapbook feel */
+    background-image: radial-gradient(
+      ellipse 100% 50% at 50% -5%,
+      rgba(220, 143, 48, 0.12),
+      transparent 70%
+    );
+    background-attachment: fixed;
     color: #2d2014;
     -webkit-font-smoothing: antialiased;
   }

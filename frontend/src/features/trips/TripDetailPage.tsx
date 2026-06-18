@@ -1,4 +1,5 @@
 import { useParams, Link, useNavigate } from 'react-router-dom'
+import { MapPin, Map } from 'lucide-react'
 import { useTrip, useDeleteTrip } from './useTrips'
 import { format } from 'date-fns'
 
@@ -15,7 +16,7 @@ export function TripDetailPage() {
   }
 
   if (isLoading) {
-    return <div className="max-w-lg mx-auto px-4 py-10 text-center text-warm-400 animate-pulse text-4xl">🗺️</div>
+    return <div className="max-w-lg mx-auto px-4 py-10 text-center text-warm-300 animate-pulse flex justify-center"><Map size={40} strokeWidth={1} /></div>
   }
 
   if (!trip) return <div className="max-w-lg mx-auto px-4 py-10 text-center text-warm-500">Trip not found.</div>
@@ -34,11 +35,12 @@ export function TripDetailPage() {
           <img src={trip.coverPhoto.url} alt={trip.title} className="w-full h-56 object-cover" />
         )}
         <div className="p-5">
-          <h1 className="text-2xl font-bold text-warm-900" style={{ fontFamily: 'Georgia, serif' }}>
+          <h1 className="font-display text-2xl font-semibold text-warm-900">
             {trip.title}
           </h1>
-          <p className="text-warm-500 mt-1">
-            📍 {trip.city.name}, {trip.city.country}
+          <p className="text-warm-500 mt-1 flex items-center gap-1">
+            <MapPin size={14} className="flex-shrink-0" />
+            {trip.city.name}, {trip.city.country}
           </p>
           <p className="text-sm text-warm-400 mt-0.5">{start} – {end}</p>
           {trip.note && <p className="mt-4 text-warm-700 text-sm leading-relaxed">{trip.note}</p>}

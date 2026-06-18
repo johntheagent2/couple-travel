@@ -25,7 +25,7 @@ export function MapPage() {
     if (!mapRef.current) return
     const map = new maplibregl.Map({
       container: mapRef.current,
-      style: 'https://tiles.openfreemap.org/styles/positron',
+      style: 'https://tiles.openfreemap.org/styles/bright',
       center: [106.66, 16.0],
       zoom: 4,
     })
