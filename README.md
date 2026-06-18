@@ -133,11 +133,3 @@ GET    /v1/map/cities              # [{cityId, name, lat, lng, tripCount}]
 ```
 
 All endpoints require cookie auth. API is versioned at `/v1`.
-
----
-
-## Roadmap
-
-- **Phase 1 (now):** trips + city pins + photo scrapbook
-- **Phase 2:** venue check-ins, fog-of-war map reveal, collections, achievements, "On this day"
-- **Phase 3:** AI captions, trip recaps, year-in-review
