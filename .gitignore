@@ -1,0 +1,36 @@
+# Documents (kept local, not tracked)
+Documents/*
+
+# Environment
+.env
+.env.local
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# .NET
+backend/**/bin/
+backend/**/obj/
+backend/**/*.user
+backend/**/*.suo
+backend/.vs/
+*.nupkg
+
+# Rider / VS Code
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Uploads (local dev blob storage)
+uploads/
+
+# Logs
+*.log
+
+# Claude file
+CLAUDE.md
