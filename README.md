@@ -1,4 +1,4 @@
-# Couple Travel RPG
+# Couple Travel
 
 > *"A shared adventure RPG powered by real-world travel."*
 
